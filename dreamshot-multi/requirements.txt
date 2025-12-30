@@ -1,0 +1,4 @@
+﻿python-telegram-bot[aiohttp]==20.7
+aiohttp
+requests
+Pillow
