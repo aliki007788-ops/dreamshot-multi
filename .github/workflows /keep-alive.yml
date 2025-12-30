@@ -1,0 +1,26 @@
+name: 🌌 Keep DreamShot Alive Forever 🌌
+
+on:
+  schedule:
+    # هر ۵ دقیقه یکبار
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    name: 🛡️ Prevent Render Sleep – DreamShot Eternal Ascension
+    steps:
+      - name: 🚀 Ping Render Service to Stay Awake
+        run: |
+          curl -f -s -o /dev/null --retry 3 --retry-delay 5 \
+            -H "User-Agent: DreamShot-Keep-Alive/1.0 (+https://github.com/yourusername/dreamshot-multi)" \
+            "https://dreamshot-multi.onrender.com/webhook" || echo "⚠️ Ping failed!" && exit 1
+
+      - name: ✅ Success Notification
+        if: success()
+        run: echo "✅ DreamShot remains eternal and fully awake! ✨ No user waits in darkness."
+
+      - name: ⚠️ Warning on Failure
+        if: failure()
+        run: echo "⚠️ Failed to reach DreamShot – check if the backend service is healthy or URL is correct!"
